@@ -18,10 +18,10 @@ export const Navigation = () => {
       <img src={logo} alt="logo" className={styles.logo}/>
       <IconToggle checked={isToggleOn} onToggle={onSwitchToggle}/>
       <nav>
-        <span>Main Page</span>
-        <span>Categories</span>
-        <span>All Products</span>
-        <span>All Sales</span>
+        <a href="#">Main Page</a>
+        <a href="#">Categories</a>
+        <a href="#">All Products</a>
+        <a href="#">All Sales</a>
       </nav>
       <div>
         <IconCounter icon={heart} count={23} />
