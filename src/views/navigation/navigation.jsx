@@ -5,6 +5,7 @@ import cart from "../../assets/cart.svg";
 import heart from "../../assets/heart.svg";
 import { IconToggle } from "../../components/icon-toggle";
 import { IconCounter } from "../../components/icon-counter";
+import { NavLink } from "react-router-dom";
 
 export const Navigation = () => {
   const [isToggleOn, setIsToggleOn] = useState(false);
@@ -13,6 +14,8 @@ export const Navigation = () => {
     setIsToggleOn((prev) => !prev);
   };
 
+  const getClassName = ({isActive}) => isActive ? styles.active : '';
+
   return (
     <div className={styles.header}>
       <div className={styles.iconWrapper}>
@@ -20,10 +23,10 @@ export const Navigation = () => {
         <IconToggle checked={isToggleOn} onToggle={onSwitchToggle} />
       </div>
       <nav className={styles.navbar}>
-        <a href="#">Main Page</a>
-        <a href="#">Categories</a>
-        <a href="#">All Products</a>
-        <a href="#">All Sales</a>
+        <NavLink to='/' className={getClassName}>Main Page</NavLink>
+        <NavLink to='/categories' className={getClassName}>Categories</NavLink>
+        <NavLink to='/all-products' className={getClassName}>All Products</NavLink>
+        <NavLink to='/all-sales' className={getClassName}>All Sales</NavLink>
       </nav>
       <div className={styles.heartCartWrapper}>
         <IconCounter icon={heart} count={23} />
