@@ -5,7 +5,7 @@ export const IconCounter = ({count, icon}) => {
     return (
         <div className={styles.wrapper} >
             {Boolean(count) && <div className={styles.count}>{count}</div>}
-            <img src={icon} alt="counter-icon" />
+            <img src={icon} alt="counter-icon" className={styles.icon} />
         </div>
     );
-}
+};

@@ -7,23 +7,25 @@ import { IconToggle } from "../../components/icon-toggle";
 import { IconCounter } from "../../components/icon-counter";
 
 export const Navigation = () => {
-  const [isToggleOn, setIsToggleOn] = useState(false); 
+  const [isToggleOn, setIsToggleOn] = useState(false);
 
   const onSwitchToggle = () => {
-    setIsToggleOn(prev => !prev);
+    setIsToggleOn((prev) => !prev);
   };
 
   return (
-    <div>
-      <img src={logo} alt="logo" className={styles.logo}/>
-      <IconToggle checked={isToggleOn} onToggle={onSwitchToggle}/>
-      <nav>
+    <div className={styles.header}>
+      <div className={styles.iconWrapper}>
+        <img src={logo} alt="logo" className={styles.logo} />
+        <IconToggle checked={isToggleOn} onToggle={onSwitchToggle} />
+      </div>
+      <nav className={styles.navbar}>
         <a href="#">Main Page</a>
         <a href="#">Categories</a>
         <a href="#">All Products</a>
         <a href="#">All Sales</a>
       </nav>
-      <div>
+      <div className={styles.heartCartWrapper}>
         <IconCounter icon={heart} count={23} />
         <IconCounter icon={cart} count={4} />
       </div>

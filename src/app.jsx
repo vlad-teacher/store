@@ -1,12 +1,7 @@
 import React from "react";
-import { Footer } from "./views/footer/footer";
-import { Navigation } from "./views/navigation/navigation";
+import { RootRoutes } from "./routes";
 
 export const App = () => {
-  return (
-    <main>
-      <Navigation />
-      <Footer />
-    </main>
-  );
+
+  return <RootRoutes/>;
 };
