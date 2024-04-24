@@ -1,30 +1,53 @@
 .wrapper {
-    height: 250px;
+  height: 250px;
+  max-width: 150px;
 }
 
 .header {
-    position: relative;
-    height: 150px;
-    background-color: #ccc;
-
+  position: relative;
+  height: 150px;
+  background-color: #ccc;
 }
 
 .discount {
-    background-color: orange;
-    color: #fff;
-    position: absolute;
-    left: 10px;
-    top: 10px;
+  background-color: orange;
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+%icon {
+  position: absolute;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+  stroke: #fff;
 }
 
 .heart {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  @extend %icon;
+  top: 10px;
 }
 
 .cart {
-    position: absolute;
-    right: 10px;
-    top: 40px;
+  @extend %icon;
+  right: 10px;
+}
+
+.cardImage {
+  max-width: 160px;
+}
+
+.info {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+}
+
+.description {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
