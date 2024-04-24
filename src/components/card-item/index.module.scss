@@ -1,0 +1,30 @@
+.wrapper {
+    height: 250px;
+}
+
+.header {
+    position: relative;
+    height: 150px;
+    background-color: #ccc;
+
+}
+
+.discount {
+    background-color: orange;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.heart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.cart {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+}

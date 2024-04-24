@@ -15,6 +15,8 @@ export const RootRoutes = () => {
         <Route path="all-sales" element={<AllSales />} />
         {/* TODO: добавить роут для одного товара */}
         {/* TODO: добавить all-products (самостоятельно) */}
+        {/* TODO: роут для лайкнутых товаров (самостоятельно) */}
+        {/* TODO: роут для корзины (самостоятельно) */}
         <Route path="*" element={<NotFound/>}/>
       </Route>
     </Routes>
