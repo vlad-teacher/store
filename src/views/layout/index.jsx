@@ -7,7 +7,7 @@ import { Navigation } from "../navigation/navigation";
 export const Layout = () => {
   return (
     <main>
-      <Navigation />
+      <Navigation/>
       <Outlet/>
       <Footer />
     </main>

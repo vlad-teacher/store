@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./index.module.scss";
-import logo from "../../assets/logo.svg";
-import cart from "../../assets/cart.svg";
-import heart from "../../assets/heart.svg";
+import {HeartIcon, CartIcon, LogoIcon} from '../../assets/icons.jsx';
 import { IconToggle } from "../../components/icon-toggle";
 import { IconCounter } from "../../components/icon-counter";
 import { NavLink } from "react-router-dom";
+import { themeContext } from "../../context/theme";
+import cn from 'classnames';
 
 export const Navigation = () => {
   const [isToggleOn, setIsToggleOn] = useState(false);
+  const {theme, switchTheme} = useContext(themeContext);
+
 
   const onSwitchToggle = () => {
     setIsToggleOn((prev) => !prev);
+    switchTheme();
   };
 
   const getClassName = ({isActive}) => isActive ? styles.active : '';
 
   return (
-    <div className={styles.header}>
+    <div className={cn(styles.header, {
+      [styles.dark]: theme === 'dark'
+    })}>
       <div className={styles.iconWrapper}>
-        <img src={logo} alt="logo" className={styles.logo} />
+        <LogoIcon className={styles.logo}/>
         <IconToggle checked={isToggleOn} onToggle={onSwitchToggle} />
       </div>
       <nav className={styles.navbar}>
@@ -29,8 +34,12 @@ export const Navigation = () => {
         <NavLink to='/all-sales' className={getClassName}>All Sales</NavLink>
       </nav>
       <div className={styles.heartCartWrapper}>
-        <IconCounter icon={heart} count={23} />
-        <IconCounter icon={cart} count={4} />
+        <IconCounter count={23}>
+          <HeartIcon />
+        </IconCounter>
+        <IconCounter count={4} >
+          <CartIcon />
+        </IconCounter>
       </div>
     </div>
   );
