@@ -11,7 +11,7 @@ export const RootRoutes = () => {
     <Routes>
       <Route path="/" element={<Layout/>} >
         <Route index element={<Main/>}/>
-        <Route path="categories" element={<Categories />} />
+        <Route path="categories/*" element={<Categories />} />
         <Route path="all-sales" element={<AllSales />} />
         {/* TODO: добавить роут для одного товара */}
         {/* TODO: добавить all-products (самостоятельно) */}

@@ -34,6 +34,7 @@ export const Navigation = () => {
         <NavLink to='/all-sales' className={getClassName}>All Sales</NavLink>
       </nav>
       <div className={styles.heartCartWrapper}>
+        {/* TODO: сделать лайки, красить иконки согласно теме */}
         <IconCounter count={23}>
           <HeartIcon />
         </IconCounter>

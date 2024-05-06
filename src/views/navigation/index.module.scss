@@ -36,7 +36,7 @@
 .header{
     max-width: 1440px;
     max-height: 128px;
-    background-color: #FFFFF1;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
