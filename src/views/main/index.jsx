@@ -1,35 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../../constants";
+import React, { useEffect } from "react";
 import { CardItem } from "../../components/card-item";
 import styles from "./index.module.scss";
 import { getDiscountPercent } from "../../utils/getDiscountPercent";
+import { SiteHeader } from "../../components/site-header";
+import { useDispatch, useSelector } from "react-redux";
+import { getDiscountItems, getIsLoading, getError } from "../../store/selectors";
+import { getAllItems } from "../../store/async-actions";
+import { Link } from "react-router-dom";
 
 export const Main = () => {
-  const [saleItems, setSaleItems] = useState([]);
+  const dispatch = useDispatch();
+  const saleItems = useSelector(getDiscountItems);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/products/all`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setSaleItems(
-          data
-            .sort(
-              (elem, elem2) =>
-                getDiscountPercent(elem2.price, elem2.discont_price) -
-                getDiscountPercent(elem.price, elem.discont_price)
-            )
-            .filter(
-              ({ discont_price }, index) => discont_price !== null && index < 4
-            )
-        );
-      });
-  }, []);
+    dispatch(getAllItems());
+  }, [dispatch]);
 
-  return (
+  if (error) {
+    return <div>ERROR</div>
+  }
+
+  return isLoading ? (
+    <div>LOADING...</div>
+  ) : (
     <>
-      <h1>Main</h1>
+      <Link to="products/2"> go see product </Link>
+      <SiteHeader />
       <div className={styles.sales}>
         {saleItems.map(({ price, discont_price, description, image, id }) => (
           <CardItem
@@ -39,6 +37,7 @@ export const Main = () => {
             discontPercent={getDiscountPercent(price, discont_price)}
             description={description}
             image={image}
+            id={id}
           />
         ))}
       </div>

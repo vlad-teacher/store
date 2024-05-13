@@ -5,6 +5,7 @@ import { AllSales } from "./views/all-sales";
 import { Main } from "./views/main";
 import { Layout } from "./views/layout";
 import { NotFound } from "./views/not-found";
+import { Product } from "./views/product";
 
 export const RootRoutes = () => {
   return (
@@ -13,7 +14,7 @@ export const RootRoutes = () => {
         <Route index element={<Main/>}/>
         <Route path="categories/*" element={<Categories />} />
         <Route path="all-sales" element={<AllSales />} />
-        {/* TODO: добавить роут для одного товара */}
+        <Route path='products/:itemId' element={<Product/>} />
         {/* TODO: добавить all-products (самостоятельно) */}
         {/* TODO: роут для лайкнутых товаров (самостоятельно) */}
         {/* TODO: роут для корзины (самостоятельно) */}
