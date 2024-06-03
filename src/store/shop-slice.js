@@ -21,6 +21,18 @@ const shopSlice = createSlice({
         },
         setIsLoading: (state, {payload}) => {
             state.isLoading = payload;
+        },
+        setLiked: (state, {payload: id}) => {
+            state.items = state.items.map((item) => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        isLiked: true
+                    }
+                } else {
+                    return item;
+                }
+            })
         }
     },
     extraReducers: (builder) => {
@@ -39,6 +51,6 @@ const shopSlice = createSlice({
 });
 
 
-export const {setItems, setCategory, setIsLoading} = shopSlice.actions;
+export const {setItems, setCategory, setIsLoading,setLiked} = shopSlice.actions;
 
 export default shopSlice.reducer;

@@ -14,8 +14,9 @@ export const CartIcon = ({className}) => (
   </svg>
 );
 
-export const HeartIcon = ({className}) => (
+export const HeartIcon = ({className, onClick}) => (
   <svg
+    onClick={onClick}
     width="48"
     height="48"
     viewBox="0 0 48 48"
