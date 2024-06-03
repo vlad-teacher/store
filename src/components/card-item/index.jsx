@@ -14,8 +14,6 @@ const CardItem = ({
   isLiked,
 }) => {
 
-  console.log('RENDER');
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
